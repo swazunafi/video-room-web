@@ -1,0 +1,280 @@
+body>#root>#containerPin {
+  height: auto;
+  min-height: 100%;
+}
+
+#containerPin {
+  color: var(--color-white);
+  height: 100%;
+  background: var(--color-offblack);
+  background-image: var(--bgTexure);
+
+  #contentPin {
+    padding-top: 60px;
+  }
+
+  @media (max-width: 799px) {
+    #contentPin {
+      padding-top: 10px;
+      padding-bottom: 0px;
+    }
+  }
+}
+
+ul.pinPageBlk {
+  display: flex;
+  width: 750px;
+  height: 350px;
+  margin: 30px auto 0px auto;
+  background-color: var(--color-offblack-dark);
+  border: .25px solid var(--color-offblack-lighter);
+  box-shadow: 0px 0px 5px rgba(var(--color-black), 0.5);
+  padding: 30px;
+  border-radius: 5px;
+
+  li.pinBlk {
+    display:inline-block;
+    vertical-align: top;
+    width: calc(100% - 275px);
+    width: -webkit-calc(100% - 275px);
+    padding-right: 15px;
+
+    ul.sessionDateTime {
+      display:block;
+      color: var(--color-offwhite-light);
+      margin-bottom: 3px;
+
+      li.sessionDateTime {
+        display: inline-block;
+        vertical-align: top;
+        width: 115px;
+        font-weight: bold;
+        font-size: 0.975rem;
+
+        &:last-child {
+          width: calc(100% - 115px);
+          width: -webkit-calc(100% - 115px);
+          font-weight: normal;
+        }
+      }
+    }
+
+    .pinHead {
+      display:block;
+      font-size: .975rem;
+      color:var(--color-offwhite-light);
+      margin: 5px 0 5px 0;
+      padding-top: 10px;
+      border-top: 1px dashed var(--color-offblack-lighter);
+    }
+
+    .pinInputFormBlk {
+      display: flex;
+      width: 300px;
+      flex-direction: column;
+      justify-content: center;
+
+      .pinInputContainer {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .pinInput {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        font-size: 1.75rem;
+        border: 2px solid var(--color-offwhite);
+        border-radius: 5px;
+        outline: none;
+        background: transparent;
+        color: var(--color-offwhite-light);
+
+        &:focus {
+          border-color: var(--color-offwhite-light);
+        }
+      }
+
+      .error-message {
+        color: var(--color-lightred);
+        margin: 10px 0 -10px 0;
+        font-size: 0.9175rem;
+      }
+    }
+    
+    .btnJoin {
+      width: 130px;
+      padding: 8px 0px;
+      border: .25px solid var(--color-offwhite-light);
+      border-radius: 3px;
+      color: var(--color-offblack);
+      background: var(--color-offwhite);
+      outline: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition-property: background;
+      transition-duration: 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        background: var(--color-offwhite-light);
+      }
+
+      &:disabled {
+        width: 130px;
+        padding: 8px 0px;
+        background: var(--color-lightblack);
+        color: var(--color-offblack-dark);
+        border-color: var(--color-lightblack);
+        cursor: default;
+        text-shadow: none;
+        position: static;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border:1px dotted var(--color-lightblack);
+      }
+    }
+
+    ul.StartTimerNoteBlk {
+      display:block;
+      color: var(--color-offwhite-light);
+      margin-top: 15px;
+
+      li.StartTimerNote {
+        display: inline-block;
+        vertical-align: top;
+
+        &:last-child {
+          font-size: 0.75rem;
+          color: var(--color-offwhite);
+          max-width: 200px;
+          padding: 19px 0 0 10px;
+        }
+      }
+      .timerLabel{
+        display: block;
+        font-size: 0.75rem;
+        color: var(--color-offwhite);
+        margin: 0px 0 4px 2px;
+      }
+
+      .timer {
+        display: block;
+
+        li.hour,
+        li.minute,
+        li.second {
+          display: inline-block;
+          vertical-align: top;
+          border: 1px solid var(--color-offwhite);
+          padding: 2px 7px;
+          margin: 0 2px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  li.sysReqBlk {
+    display:inline-block;
+    vertical-align: top;
+    width: 275px;
+    border-left: 1px dashed var(--color-offblack-lighter);
+    padding-left: 15px;
+
+    .sysReqHead {
+      display:block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--color-offwhite-light);
+      margin-bottom: 12px;
+    }
+
+    ul.sysReqPoints {
+      list-style-type: disc;
+      padding-left: 10px;
+
+      li{
+        margin-bottom: 12px;
+        font-size: 0.95rem;
+        color: var(--color-offwhite);
+      }
+    }
+  }
+}
+
+.powered {
+  display: block;
+  text-align: center;
+  font-size: .8175rem;
+  color: var(--color-offwhite);
+  margin-top: 2px;
+
+  a {
+    color: var(--color-lightblack);
+
+    &:hover {
+      color: var(--color-offwhite-light);
+    }
+  }
+}
+
+/*Health Check Pop Screen*/
+.HealthCheckPop {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideDown 0.5s forwards; // Slide down animation
+
+  .HealthCheckPopContent {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    .HC_Heading {
+      display: block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--color-offblack-dark);
+      margin-bottom: 15px;
+    }
+
+    .popButtons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+
+      .btnCancel,
+      .btnConfirm {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--color-offblack-dark);
+        color: var(--color-white);
+
+        &:hover {
+          cursor: pointer;
+          background-color: var(--color-black);
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  to {
+    top: 0;
+  }
+}

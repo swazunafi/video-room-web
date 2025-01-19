@@ -1,0 +1,204 @@
+.header {
+  display: block;
+  width: 100%;
+  visibility: visible;
+  left: 0px;
+  top: 0px;
+  z-index: 25;
+  position: fixed;
+  height: 60px;
+  background: var(--color-offblack);
+  border-bottom: 1px solid var(--color-offblack-light);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+
+  ul.headerIIIcol {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    
+    li.headerIIIcol {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% / 3);
+      width: -webkit-calc(100% / 3);
+  
+      &:last-child{
+        text-align: right;
+      }
+
+      &:nth-last-child(2){
+        text-align: center;
+      }
+    }
+
+    .iconText {
+      display: block;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--color-offwhite-light);
+    }
+  }
+
+  .logoIconPos {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    aspect-ratio: 1/1;
+    background-position: left;
+    margin-top: 10px;
+  }
+
+  ul.timerIconBlk {
+    display: inline-block;
+    margin: 10px 0 0 15px;
+
+    li.timerIcon {
+      display: inline-block;
+      vertical-align: top;
+      width: 26px;
+      height: 40px;
+      background: var(--timerIcon_SVG);
+      background-size: 26px;
+      background-position: left center;
+      background-repeat: no-repeat;
+    }
+
+    li.timer {
+      display: inline-block;
+      vertical-align: top;
+      width: 50px;
+      color: var(--color-offwhite-light);
+      font-size: 1.1rem;
+      margin-left: 8px;
+      line-height: 40px;
+    }
+  }
+
+  ul.rightContentBlk {
+    display: inline-block;
+
+    li.micBlk,
+    li.webcamBlk,
+    li.noteBlk,
+    li.chatBlk,
+    li.participantBlk {
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px 10px 0px 10px;
+
+      .micOn,
+      .micOff,
+      .webcamOn,
+      .webcamOff,
+      .chatIcon,
+      .noteIcon,
+      .participantIcon {
+        display: block;
+        height: 23px;
+        aspect-ratio: 1/1;
+        margin: 3px auto 0px auto;
+        transition-property: opacity;
+        transition-duration: 0.5s;
+      }
+
+      .micOn {
+        background: var(--micOnIcon_SVG);
+        background-size: 18px;
+      }
+
+      .micOff {
+        background: var(--micOffIcon_SVG);
+        background-size: 15px;
+      }
+
+      .webcamOn {
+        background: var(--webcamOnIcon_SVG);
+        background-size: 16px;
+      }
+
+      .webcamOff {
+        background: var(--webcamOffIcon_SVG);
+        background-size: 16px;
+      }
+
+      .chatIcon {
+        background: var(--chatIcon_SVG);
+        background-size: 20px;
+      }
+
+      .noteIcon {
+        background: var(--noteIcon_SVG);
+        background-size: 20px;
+      }
+
+      .participantIcon {
+        background: var(--participantIcon_SVG);
+        background-size: 16px;
+      }
+
+      .micOn,
+      .micOff,
+      .webcamOn,
+      .webcamOff,
+      .chatIcon,
+      .noteIcon,
+      .participantIcon {
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      &:hover .micOn,
+      &:hover .micOff,
+      &:hover .webcamOn,
+      &:hover .webcamOff,
+      &:hover .chatIcon,
+      &:hover .noteIcon,
+      &:hover .participantIcon {
+        opacity: .55;
+        cursor: pointer;
+      }
+
+      &:hover .iconText {
+        color: var(--color-offwhite);
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+    }
+
+    li.headIconPartition {
+      display: inline-block;
+      vertical-align: top;
+      border-left:1px dashed var(--color-offwhite);
+      margin: 15px 10px 0 10px;
+      width:1px;
+      height:35px;
+    }
+
+    li.feedbackBtn {
+      display: inline-block;
+      vertical-align: top;
+      margin: 16px 0 0 10px;
+
+      .buttonFeedback {
+        width: auto;
+        width: 125px;
+        height: 30px;
+        border: .25px solid var(--color-offwhite-light);
+        border-radius: 5px;
+        color: var(--color-offblack);
+        background: var(--color-offwhite);
+        outline: none;
+        font-weight: bold;
+        font-size: .9rem;
+        transition-property: background;
+        transition-duration: 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          background: var(--color-offwhite-light);
+        }
+      }
+    }
+  }
+
+}

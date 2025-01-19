@@ -1,0 +1,355 @@
+@import "variables.css";
+
+html,
+body,
+#root,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-arial);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+body>#root {
+  height: 100%;
+  width: 100%;
+}
+
+body>#root>#container {
+  height: auto;
+  min-height: 100%;
+}
+
+#container {
+  color: var(--color-white);
+  height: 100%;
+  background: var(--color-offblack-dark);
+
+  #content {
+    padding-top: 60px;
+    padding-bottom: 35px;
+  }
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+:root {
+  --font-arial: arial;
+
+  --color-white: #ffffff;
+  --color-offwhite: #878787;
+  --color-offwhite-light: #bdbdbd;
+  --color-black: #000000;
+  --color-offblack: #292929;
+  --color-offblack-dark: #1f1f1f;
+  --color-offblack-light: #323232;
+  --color-offblack-lighter: #525252;
+  --color-lightred: #aa342e;
+
+  --background-color: var(--color-white);
+  --text-color: var(--color-black);
+}
+
+.dark {
+  --background-color: var(--color-black);
+  --text-color: var(--color-white);
+}
+
+// body {
+//     background-color: var(--background-color);
+//     color: var(--text-color);
+//     transition: background-color 0.3s, color 0.3s;
+// }
+
+.widthfix_10px {
+  width: auto;
+  margin: 0px 10px;
+}
+
+.intRoomLogoIcon {
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.intRoomLogoIcon {
+  background-image: url("../img/logoIcon.png");
+}
+
+.intRoomLogoIcon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Styling for Feedback Slide */
+.FeedbackPanel {
+  position: fixed;
+  top: 60px;
+  right: -260px; // Hidden by default
+  width: 260px;
+  height: 100%;
+  color: var(--color-offwhite);
+  background-color: var(--color-offblack);
+  border-left: .25px solid var(--color-offblack-lighter);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  overflow-y: hidden;
+  z-index: 24;
+
+  &.open {
+    right: 0;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-offwhite-light);
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--color-offblack);
+    padding: 2px 5px;
+
+    &:hover {
+      color: var(--color-offwhite);
+    }
+  }
+
+  .panel-content {
+    padding: 20px;
+  }
+
+}
+
+/*Video Chat Structure*/
+.videoChat_IIcol {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 105px);
+  height: -webkit-calc(100vh - 105px);
+  margin-top: 10px;
+
+  .left-column {
+    flex-grow: 1;
+    list-style: none;
+    margin: 0 -10x 20px 0px;
+    height: calc(100vh - 115px);
+    height: -webkit-calc(100vh - 115px);
+
+    &.full-width {
+      flex-grow: 0;
+      flex-basis: 100%;
+    }
+  }
+
+  .right-column {
+    width: 260px;
+    list-style: none;
+    margin: -10px -10px 0 10px;
+    display: flex;
+    flex-direction: column;
+
+    .notes,
+    .chat {
+      list-style: none;
+      margin: 0px;
+      padding: 10px;
+      color: var(--color-offwhite);
+      background-color: var(--color-offblack);
+      border-left: 1px solid var(--color-offblack-lighter);
+
+      &.full-height {
+        flex-grow: 1;
+      }
+
+      &.half-height {
+        flex-grow: 0.5;
+      }
+
+      button {
+        margin-top: 5px;
+        padding: 2px 5px;
+        cursor: pointer;
+        float: right;
+      }
+    }
+
+    .notes {
+      border-bottom: 1px solid var(--color-offblack-lighter);
+    }
+  }
+
+  .open-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+
+    button {
+      margin: 5px 0;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+/*Video Chat Block*/
+.VideoChat_Container {
+
+  .VideoChat_BoxI {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .box {
+      height: calc(100vh - 115px);
+      height: -webkit-calc(100vh - 115px);
+    }
+  }
+
+  .VideoChat_BoxII {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+
+    .box {
+      flex: 1;
+      height: calc(100vh - 115px);
+      height: -webkit-calc(100vh - 115px);
+    }
+  }
+
+  .VideoChat_BoxI,
+  .VideoChat_BoxII {
+    .box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-offblack);
+      border: 1px solid var(--color-offblack-lighter);
+      box-sizing: border-box;
+      border-radius: 3px;
+
+      .Name {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        color: var(--color-offwhite-light);
+        font-size: .8rem;
+        background-color: var(--color-offblack);
+        ;
+        z-index: 1;
+        padding: 0px 3px;
+        border-radius: 2px;
+      }
+
+      .webcamOff {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: var(--webcamOffIcon_SVG);
+        background-size: 70px;
+        opacity: .3;
+      }
+    }
+  }
+}
+
+/*Participant Popup*/
+.participant-popup {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--color-offblack-lighter);
+  box-shadow: 0 4px 8px rgba(var(--color-black), 0.2);
+  border: 1px solid var(--color-offblack);
+  z-index: 1000;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: slide-down 0.5s ease-out forwards;
+
+  .close-popup {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      color: var(--color-offwhite);
+    }
+  }
+
+  .popup-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+// Animation for participant pop sliding from the top
+@keyframes slide-down {
+  from {
+    top: -200px;
+    opacity: 0;
+  }
+
+  to {
+    top: 30%; // Final position
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+#container {
+  display: flex;
+}
+
+#column1,
+#column2 {
+  flex: 1;
+}
+
+#column2 {
+  display: none;
+}
