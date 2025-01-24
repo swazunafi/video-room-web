@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Interview Room</title>
+        <title>Interview Rooms</title>
       </head>
       <body>
         <AppRouterCacheProvider>
