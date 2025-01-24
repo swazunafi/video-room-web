@@ -1,30 +1,25 @@
+
+import React from 'react';
+import PeerVideoBlock from './peer';
+import { useSelector } from 'react-redux';
+
+const MemoizedPeerVideoBlock = React.memo(PeerVideoBlock);
+
 const VideoChatBlock = () => {
+
+  const peersReducer = useSelector((state) => state.peersReducer);
+  const peers = Object.values(peersReducer);
+  const style = peers.length > 1 ? "VideoChat_BoxII" : "VideoChat_BoxI";
+
   return (
     <div className="VideoChat_Container">
 
-      {/* For 1 Participant */}
-      {/* <div className="VideoChat_BoxI">
-        <div className="box">
-          <div className="Name">Participant Name</div>
-          <div className="webcamOff"></div>
+      {peers.map(peer => (
+        <div className={style} key={peer.id}>
+          <MemoizedPeerVideoBlock peer={peer} suppressHydrationWarning={true} />
         </div>
-      </div> */}
+      ))}
 
-      {/* For 2 Participant */}
-      {/* <div className="VideoChat_BoxII" style={{ display: "none" }}>
-        <div className="box">
-          <div className="Name">Participant Name</div>
-          <div className="webcamOff"></div>
-        </div>
-        <div className="box">
-          <div className="Name">Participant Name</div>
-        </div>
-      </div> */}
-
-      <div id="container">
-        <div id="column1">Column 1 Content</div>
-        <div id="column2">Column 2 Content</div>
-      </div>
     </div>
 
   );

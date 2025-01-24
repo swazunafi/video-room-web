@@ -4,15 +4,11 @@
 import FooterComponent from "./Footer";
 import HeaderComponent from "./Header";
 
-const MainLayout = ({ children, onNaviClicked }) => {
+const MainLayout = ({ children }) => {
 
-    const OnHeaderNaviClicked = (e) =>{
-        if ( onNaviClicked) onNaviClicked(e);
-    }
-    
     return (
         <>
-            <HeaderComponent onNaviClicked={OnHeaderNaviClicked}/>
+            <HeaderComponent />
             <div id="container">
                 <div id="content">
                     <div className="widthfix_10px">

@@ -339,17 +339,3 @@ a:hover {
     transform: translate(-50%, -50%);
   }
 }
-
-
-#container {
-  display: flex;
-}
-
-#column1,
-#column2 {
-  flex: 1;
-}
-
-#column2 {
-  display: none;
-}

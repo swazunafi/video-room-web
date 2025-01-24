@@ -1,11 +1,16 @@
-import { useState } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import HealthCheckComponent from './HealthCheckPop';
 
+import { useDispatch } from 'react-redux';
+import { setHealthCheck } from '@redux/features/healthCheckSlice';
+import { clearPeers } from '@redux/features/peersSlice';
+
 const PinPageComponent = () => {
+
   const [pin, setPin] = useState(['', '', '', '']);
   const [error, setError] = useState('');
-  const [showHealthCheck, setShowHealthCheck] = useState(false);
+
+  const dispatch = useDispatch();
 
   const handlePinChange = (e, index) => {
     const value = e.target.value;
@@ -26,13 +31,13 @@ const PinPageComponent = () => {
       setError('Please enter a 4-digit PIN');
     } else {
       setError('');
-      setShowHealthCheck(true); // Show the pop screen
+      dispatch(setHealthCheck({ open: true }));
     }
   };
 
-  const closeHealthCheck = () => {
-    setShowHealthCheck(false); // Hide the pop screen
-  };
+  useEffect(() => {
+    dispatch(clearPeers());
+  }, [dispatch]);
 
   return (
     <div>
@@ -77,19 +82,8 @@ const PinPageComponent = () => {
       </ul>
 
       {/* Health Check Pop Screen */}
-      {showHealthCheck && (
-        <div className="HealthCheckPop">
-          <div className="HealthCheckPopContent">
-            <HealthCheckComponent />
-            <div className="popButtons">
-              <button onClick={closeHealthCheck} className="btnCancel">Cancel</button>
-              <Link href="/videoRoom">
-                <button className="btnConfirm">Join</button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      <HealthCheckComponent />
+
     </div>
   );
 };

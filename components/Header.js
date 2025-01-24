@@ -5,20 +5,21 @@ import FeedbackComponent from "./Feedback";
 import ParticipantComponent from "./ParticipantPop";
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setToolBox } from '@redux/features/toolBoxSlice';
+import { getSelfPeer } from '@redux/features/peersSlice';
 
 const HeaderComponent = () => {
 
   const dispatch = useDispatch();
 
-  const toolBox = useSelector((state) => state.toolBoxReducer);
+  const peers = useSelector((state) => state.peersReducer);
+  const selfPeer = Object.values(peers).find(peer => peer.self);
 
   const [isOpen, setIsOpen] = useState(false);
   const [showParticipantPopup, setShowParticipantPopup] = useState(false);
 
   const dispatchValue = (e, name, value) => {
     e.preventDefault();
-    dispatch(setToolBox({ [name]: value }));
+    //dispatch(setToolBox({ [name]: value }));
   };
 
   const togglePanel = () => {
@@ -50,25 +51,25 @@ const HeaderComponent = () => {
                 </li>
                 <li
                   className="chatBlk"
-                  onClick={(e) => dispatchValue(e, "chat", !toolBox?.chat)}
+                  onClick={(e) => dispatchValue(e, "chat", !selfPeer?.chat)}
                 >
                   <div className="chatIcon"></div>
                   <div className="iconText">Chat</div>
                 </li>
                 <li
                   className="noteBlk"
-                  onClick={(e) => dispatchValue(e, "note", !toolBox?.note)}
+                  onClick={(e) => dispatchValue(e, "note", !selfPeer?.note)}
                 >
                   <div className="noteIcon"></div>
                   <div className="iconText">Notes</div>
                 </li>
                 <li className="headIconPartition">&nbsp;</li>
-                <li className="webcamBlk" onClick={(e) => dispatchValue(e, "webcam", !toolBox?.webcam)}>
-                  <div className={toolBox?.webcam ? "webcamOn" : "webcamOff"} ></div>
+                <li className="webcamBlk" onClick={(e) => dispatchValue(e, "webcam", !selfPeer?.webcam)}>
+                  <div className={selfPeer?.webcam ? "webcamOn" : "webcamOff"} ></div>
                   <div className="iconText">Camera</div>
                 </li>
-                <li className="micBlk" onClick={(e) => dispatchValue(e, "mic", !toolBox?.mic)}>
-                  <div className={toolBox?.mic ? "micOn" : "micOff"} ></div>
+                <li className="micBlk" onClick={(e) => dispatchValue(e, "mic", !selfPeer?.mic)}>
+                  <div className={selfPeer?.mic ? "micOn" : "micOff"} ></div>
                   <div className="iconText">Mic</div>
                 </li>
                 <li className="feedbackBtn">

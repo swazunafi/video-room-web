@@ -17,9 +17,9 @@ const TwoColumnLayout = () => {
     setChatNotes((prev) => ({ ...prev, [e.name]: e.state }));
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     setIsRightColumnVisible(chatNotes.chat || chatNotes.note);
-  },[chatNotes]);
+  }, [chatNotes]);
 
   return (
     <MainLayout onNaviClicked={OnHeaderNaviClicked}>
@@ -38,9 +38,8 @@ const TwoColumnLayout = () => {
           <ul className="right-column">
             {chatNotes.note && (
               <li
-                className={`notes ${
-                  chatNotes.chat ? "half-height" : "full-height"
-                }`}
+                className={`notes ${chatNotes.chat ? "half-height" : "full-height"
+                  }`}
               >
                 <button
                   onClick={() =>
@@ -54,13 +53,12 @@ const TwoColumnLayout = () => {
             )}
             {chatNotes.chat && (
               <li
-                className={`chat ${
-                  chatNotes.note ? "half-height" : "full-height"
-                }`}
+                className={`chat ${chatNotes.note ? "half-height" : "full-height"
+                  }`}
               >
                 <button onClick={() =>
-                    OnHeaderNaviClicked({ name: "chat", state: false })
-                  }>X</button>
+                  OnHeaderNaviClicked({ name: "chat", state: false })
+                }>X</button>
                 <ChatComponent />
               </li>
             )}

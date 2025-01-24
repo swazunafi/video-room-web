@@ -1,5 +1,6 @@
 "use client"
 
+import React from 'react';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -21,14 +22,14 @@ export default function RootLayout({ children }) {
         <title>Interview Room</title>
       </head>
       <body>
-        <ReduxProvider>
-          <AppRouterCacheProvider>
+        <AppRouterCacheProvider>
+          <ReduxProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />
               {children}
             </ThemeProvider>
-          </AppRouterCacheProvider>
-        </ReduxProvider>
+          </ReduxProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
